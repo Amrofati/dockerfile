@@ -1,17 +1,14 @@
-FROM node:12-alpine
+FROM python:3.9
 
+# 작업 디렉토리 설정
 WORKDIR /app
-COPY *.json ./
-COPY *.js ./
 
-COPY ./bin ./bin/
-COPY ./public ./public/
-COPY ./routes ./routes/
-COPY ./views ./views/
+# 사용자 변경
+USER root
 
-RUN chown -Rf node:node .
+# 패키지 업데이트 및 필요한 패키지 설치
+RUN apt-get update && \
+    apt-get install -y <your-package>
 
-USER node
-EXPOSE 3000
-RUN npm ci --only=production
-ENTRYPOINT [ "npm", "start" ]
+# 사용자 변경
+USER python
