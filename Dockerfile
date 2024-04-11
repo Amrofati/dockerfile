@@ -5,7 +5,7 @@ FROM python:3.9
 WORKDIR /app
 
 # 사용자 변경
-USER root
+USER Amorfati
 
 # 패키지 업데이트 및 필요한 패키지 설치
 RUN apt-get update && \
