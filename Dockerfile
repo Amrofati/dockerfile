@@ -9,6 +9,6 @@ USER root
 # 패키지 업데이트 및 필요한 패키지 설치
 RUN apt-get update && \
     apt-get install -y fonts-nanum
-
+    fc-cache -fv
 # 사용자 변경
 USER python
